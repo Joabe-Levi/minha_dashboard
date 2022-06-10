@@ -17,11 +17,20 @@ function renderiza_total_vendido(url){
     fetch(url, {
         method: 'get',
     }).then(function(result){
-        return result.json()
+        return result.json();
     }).then(function(data){
         document.getElementById('faturamento_total').innerHTML = data.total
-    })
+    });
+}
 
+function renderiza_despesas(url){
+    fetch(url, {
+        method: 'get',
+    }).then(function(result){
+        return result.json();
+    }).then(function(data){
+        document.getElementById('faturamento_total').innerHTML = data.total
+    });
 }
 
 function renderiza_faturamento_mensal(url){
@@ -53,9 +62,7 @@ function renderiza_faturamento_mensal(url){
                 }
             }
         });
-
-
-    })
+    });
 }
 
 function renderiza_despesas_mensal(){
@@ -73,7 +80,7 @@ function renderiza_despesas_mensal(){
                 borderWidth: 0.2
             }]
         },
-        
+
     });
 }
 
@@ -83,7 +90,7 @@ function renderiza_produtos_mais_vendidos(url){
     }).then(function(result){
         return result.json()
     }).then(function(data){
-        
+
         const ctx = document.getElementById('produtos_mais_vendidos').getContext('2d');
         var cores_produtos_mais_vendidos = gera_cor(qtd=4)
         const myChart = new Chart(ctx, {
@@ -98,9 +105,9 @@ function renderiza_produtos_mais_vendidos(url){
                     borderWidth: 1
                 }]
             },
-            
+
         });
-    })
+    });
 }
 
 function renderiza_funcionario_mes(url){
@@ -123,10 +130,6 @@ function renderiza_funcionario_mes(url){
                     borderWidth: 1
                 }]
             },
-            
         });
-
-
-    })
-
+    });
 }
